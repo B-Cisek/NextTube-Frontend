@@ -3,9 +3,9 @@
   <div
     class="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
   >
-    <a href="#">
+    <NuxtLink to="/video/1">
       <img class="rounded-t-lg" src="https://placehold.co/600x400" alt="" />
-    </a>
+    </NuxtLink>
     <div class="p-5">
       <a href="#">
         <h5

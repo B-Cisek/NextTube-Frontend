@@ -12,9 +12,7 @@ const links = [
     {
       label: "Trending",
       icon: "i-heroicons-chart-bar",
-      to: `${
-        route.path.startsWith("/dev") ? "/dev" : ""
-      }/components/vertical-navigation`,
+      to: "/trending",
     },
     {
       label: "Command Palette",

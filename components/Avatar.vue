@@ -1,5 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const auth = useAuthStore();
+
+const handleLogout = async () => {
+  await auth.logout();
+};
+</script>
 <template>
+  <button @click="handleLogout">Logout</button>
   <UAvatar
     chip-color="blue"
     chip-text=""

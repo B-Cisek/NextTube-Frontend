@@ -1,7 +1,8 @@
 <script setup lang="ts">
 definePageMeta({
   layout: "auth",
+  middleware: ["guest"],
 });
 </script>
 
-<template><FormRegister /></template>
+<template><FormSignup /></template>

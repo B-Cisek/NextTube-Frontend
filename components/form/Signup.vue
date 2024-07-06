@@ -1,4 +1,16 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const form = ref<Credentials>({
+  email: "john.doe@example.com",
+  password: "password",
+  remember: false,
+});
+
+const auth = useAuthStore();
+
+const handleRegister = async () => {
+  const { error } = await auth.login(form.value);
+};
+</script>
 <template>
   <div
     class="rounded-xl divide-y divide-gray-200 dark:divide-gray-800 ring-1 ring-gray-200 dark:ring-gray-800 shadow max-w-sm w-full bg-white/75 dark:bg-white/5 backdrop-blur"
