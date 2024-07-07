@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { isAuthenticated } = useAuthStore();
+const { isAuthenticated, fetchUser } = useAuthStore();
 </script>
 <template>
   <header

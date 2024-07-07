@@ -4,8 +4,11 @@ export function useApiFetch<T>(
   path: string | (() => string),
   options: UseFetchOptions<T> = {}
 ) {
+  const config = useRuntimeConfig();
+
   let headers: any = {
     accept: "application/json",
+    referer: config.public.appUrl,
   };
   const token = useCookie("XSRF-TOKEN");
 
@@ -16,11 +19,11 @@ export function useApiFetch<T>(
   if (import.meta.server) {
     headers = {
       ...headers,
-      ...useRequestHeaders(["referer", "cookie"]),
+      ...useRequestHeaders(["cookie"]),
     };
   }
 
-  return useFetch("http://localhost" + path, {
+  return useFetch(config.public.apiUrl + path, {
     credentials: "include",
     watch: false,
     ...options,

@@ -18,6 +18,13 @@ export interface Credentials {
   remember: boolean;
 }
 
+export interface SignupCredentials {
+  username: string;
+  email: string;
+  password: string;
+  password_confirmation: string;
+}
+
 export const useAuthStore = defineStore("auth", () => {
   const authUser = ref<User | Admin | null>(null);
   const isAuthenticated = computed<boolean>(() => authUser.value !== null);
@@ -46,5 +53,18 @@ export const useAuthStore = defineStore("auth", () => {
     navigateTo("/login");
   }
 
-  return { authUser, login, isAuthenticated, fetchUser, logout };
+  async function signup(credentials: SignupCredentials) {
+    await useApiFetch("/sanctum/csrf-cookie");
+
+    const login = await useApiFetch("/signup", {
+      method: "POST",
+      body: credentials,
+    });
+
+    await fetchUser();
+
+    return login;
+  }
+
+  return { authUser, login, isAuthenticated, fetchUser, logout, signup };
 });
