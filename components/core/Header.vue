@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import UserDropdown from "./UserDropdown.vue";
+
 const { isAuthenticated, fetchUser } = useAuthStore();
 </script>
 <template>
@@ -14,7 +16,7 @@ const { isAuthenticated, fetchUser } = useAuthStore();
 
     <div class="flex items-center gap-2">
       <DarkMode />
-      <Avatar v-if="isAuthenticated" />
+      <UserDropdown v-if="isAuthenticated" class="w-[200px]" />
       <LoginButton v-if="!isAuthenticated" />
       <RegisterButton v-if="!isAuthenticated" />
     </div>
