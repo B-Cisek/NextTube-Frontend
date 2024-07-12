@@ -4,7 +4,7 @@ const isSearchOpen = useSearch();
 onMounted(() => window.addEventListener("keydown", onKeyDown));
 onUnmounted(() => window.removeEventListener("keydown", onKeyDown));
 
-const onKeyDown = (event) => {
+const onKeyDown = (event: KeyboardEvent) => {
   if (isSearchOpen.value) return;
   if ((event.metaKey || event.ctrlKey) && event.key === "k") {
     isSearchOpen.value = true;
@@ -14,8 +14,8 @@ const onKeyDown = (event) => {
 const groups = [
   {
     key: "users",
-    label: (q) => q && `Users matching “${q}”...`,
-    search: async (q) => {
+    label: (q: string) => q && `Users matching “${q}”...`,
+    search: async (q: string) => {
       if (!q) {
         return [];
       }

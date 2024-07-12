@@ -23,7 +23,13 @@
     "vue": "latest"
   },
   "devDependencies": {
+    "@eslint/js": "^9.6.0",
+    "@nuxtjs/eslint-module": "^4.1.0",
+    "eslint": "^9.6.0",
+    "eslint-plugin-vue": "^9.27.0",
+    "globals": "^15.8.0",
     "typescript": "^5.5.3",
+    "typescript-eslint": "^7.15.0",
     "vue-tsc": "^2.0.26"
   }
 }

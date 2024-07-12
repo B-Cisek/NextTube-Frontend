@@ -5,8 +5,8 @@ const auth = useAuthStore();
 const form = ref<SignupCredentials>({
   username: "john",
   email: "john.doe@example.com",
-  password: "dsad",
-  password_confirmation: "dsadsadasd",
+  password: "password",
+  password_confirmation: "password",
 });
 
 const handleSignup = async () => {

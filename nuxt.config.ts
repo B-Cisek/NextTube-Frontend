@@ -1,5 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  modules: ['@nuxtjs/eslint-module', "@nuxt/ui", "@pinia/nuxt"],
+
   runtimeConfig: {
     examplePrivateKey: process.env.NUXT_KEY, // override by .env
     public: {
@@ -7,21 +9,21 @@ export default defineNuxtConfig({
       apiUrl: process.env.NUXT_PUBLIC_API_URL ?? "http://localhost",
     },
   },
+
   devtools: { enabled: true },
   css: ["@/assets/css/main.css"],
-  modules: ["@nuxt/ui", "@pinia/nuxt", "@nuxt/eslint"],
+
   tailwindcss: {
     viewer: true,
   },
+
   typescript: {
-    typeCheck: false,
+    typeCheck: true,
   },
-  eslint: {
-    config: {
-      stylistic: {},
-    },
-  },
+
   experimental: {
     restoreState: true,
   },
+
+  compatibilityDate: "2024-07-07",
 });

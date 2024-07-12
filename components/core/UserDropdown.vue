@@ -90,7 +90,7 @@ const items = computed(() => [
       <div class="text-left">
         <p>Signed in as</p>
         <p class="truncate font-medium text-gray-900 dark:text-white">
-          {{ auth.authUser.email }}
+          {{ auth.authUser?.email }}
         </p>
       </div>
     </template>
